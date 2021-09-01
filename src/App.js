@@ -47,6 +47,7 @@ handleSubmit = (event) => {
         type="text" 
         placeholder="Enter new to-do here..."
         />
+        <p>{20 - this.state.newTodo.length} characters left</p>
         <button type="submit">Create new to-do</button>
       </form>
       {todoElements}
