@@ -1,5 +1,6 @@
 import React, { Component } from 'react' 
 import TodoListItem from "./components/TodoListItem";
+import NewTodoForm from './components/NewTodoForm';
 import Header from "./components/Header";
 
 class App extends React.Component {
@@ -40,16 +41,7 @@ handleSubmit = (event) => {
     return (
     <div>
       <Header />
-      <form onSubmit={this.handleSubmit}>
-        <input 
-        onChange={this.handleChange} 
-        value={this.state.newTodo}
-        type="text" 
-        placeholder="Enter new to-do here..."
-        />
-        <p>{20 - this.state.newTodo.length} characters left</p>
-        <button type="submit">Create new to-do</button>
-      </form>
+      
       {todoElements}
       </div>
     );
