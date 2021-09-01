@@ -19,8 +19,12 @@ handleChange = (event) => {
 handleSubmit = (event) => {
   event.preventDefault(); 
   console.log("submitting new to-do")
-  const newTodoObject = {id: }
-}
+  const newTodoObject = {
+    id: this.state.todos.length + 1, 
+    completed: false, 
+    text: this.state.newTodo,
+  };
+};
 
   render() {
     const todoElements = this.state.todos.map((todo) => (
