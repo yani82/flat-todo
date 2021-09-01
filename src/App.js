@@ -24,6 +24,13 @@ handleSubmit = (event) => {
     completed: false, 
     text: this.state.newTodo,
   };
+
+  const newTodosState = this.state.todos.concat(newTodoObject)
+  // const newTodosState = [...this.state.todos, newTodoObject];
+  this.setState({
+      todos: newTodosState,
+      newTodo: "", 
+    });
 };
 
   render() {
