@@ -4,10 +4,13 @@ import React, { Component } from 'react'
 export default class NewTodoForm extends Component {
     state = {
         newTodo: "",
+        dueDate: "",
+        assignee: "",
     };
 
     handleChange = (event) => {
-        this.setState({ newTodo: event.target.value })
+    debugger;
+        this.setState({ [event.target.name]: event.target.value })
         // console.log("the input has changed");
       };
       
@@ -35,9 +38,27 @@ export default class NewTodoForm extends Component {
                 <input 
                 onChange={this.handleChange} 
                 value={this.state.newTodo}
+                name="newTodo"
                 type="text" 
                 placeholder="Enter new to-do here..."
                 />
+                <br></br>
+                <input 
+                onChange={this.handleChange} 
+                value={this.state.dueDate}
+                name="dueDate"
+                type="text" 
+                placeholder="Enter new to-do here..."
+                />
+                <br></br>
+                <input 
+                onChange={this.handleChange} 
+                value={this.state.assignee}
+                name="assignee"
+                type="text" 
+                placeholder="Enter new to-do here..."
+                />
+                <br></br>
                 <p>{20 - this.state.newTodo.length} characters left</p>
                 <button type="submit">Create new to-do</button>
                 </form>

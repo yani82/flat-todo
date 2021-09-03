@@ -35,7 +35,7 @@ addNewTodo = (newTodoObject) => {
     ));
     return (
     <div>
-      <Header />
+      <Header todos={this.state.todos} />
       <NewTodoForm todos={this.state.todos} addNewTodo={this.addNewTodo} />
       {todoElements}
       </div>

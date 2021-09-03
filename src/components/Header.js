@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function Header() {
+export default function Header(props) {
     return (
         <div>
-            <h1>To-do List</h1>
+            <h1>To-do List: {props.todos.length}</h1>
         </div>
     );
 }
