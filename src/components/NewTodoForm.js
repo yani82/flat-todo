@@ -20,14 +20,12 @@ export default class NewTodoForm extends Component {
           text: this.state.newTodo,
         };
 
-        this.props.addNewTodo(newTodoObject)
-      
+        this.props.addNewTodo(newTodoObject);
+        this.setState({
+            newTodo: "", 
+        });
         // const newTodosState = this.state.todos.concat(newTodoObject)
         // // const newTodosState = [...this.state.todos, newTodoObject];
-        // this.setState({
-        //     todos: newTodosState,
-        //     newTodo: "", 
-        //   });
       };
 
     render() {
