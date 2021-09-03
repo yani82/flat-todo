@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 
 export default class NewTodoForm extends Component {
-    // static propTypes = {
-    //     prop: PropTypes
-    // }
-
     state = {
         newTodo: "",
-    }
+    };
 
     handleChange = (event) => {
         this.setState({ newTodo: event.target.value })
@@ -17,19 +13,21 @@ export default class NewTodoForm extends Component {
       
     handleSubmit = (event) => {
         event.preventDefault(); 
-        console.log("submitting new to-do")
+        // console.log("submitting new to-do")
         const newTodoObject = {
-          id: this.state.todos.length + 1, 
+          id: this.props.todos.length + 1, 
           completed: false, 
           text: this.state.newTodo,
         };
+
+        this.props.addNewTodo(newTodoObject)
       
-        const newTodosState = this.state.todos.concat(newTodoObject)
-        // const newTodosState = [...this.state.todos, newTodoObject];
-        this.setState({
-            todos: newTodosState,
-            newTodo: "", 
-          });
+        // const newTodosState = this.state.todos.concat(newTodoObject)
+        // // const newTodosState = [...this.state.todos, newTodoObject];
+        // this.setState({
+        //     todos: newTodosState,
+        //     newTodo: "", 
+        //   });
       };
 
     render() {
