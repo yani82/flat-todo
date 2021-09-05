@@ -11,6 +11,19 @@ state = {
   ],
 };
 
+completeTodo = (id) => {
+  const updateTodoState = this.state.todos.map((todo) => {
+    if (todo.id === id) {
+      // change the value of this todo's complete prop to true 
+      return {...todo, completed: true};
+    } else {
+      return todo;
+    }
+  });
+
+  this.setState({todos: updateTodoState})
+};
+
 addNewTodo = (newTodoObject) => {
   // Here is where we would make an API call to persist the new todo object
   const newTodosState = this.state.todos.concat(newTodoObject);
@@ -38,7 +51,11 @@ addNewTodo = (newTodoObject) => {
       return todo.completed 
     })
     const activeTodoElements = activeTodos.map((todo) => (
-      <TodoListItem key={todo.id} todo={todo} />
+      <TodoListItem 
+      completeTodo={this.completeTodo} 
+      key={todo.id} 
+      todo={todo} 
+      />
     ));
     const completedTodoElements = completedTodos.map((todo) => (
       <TodoListItem key={todo.id} todo={todo} />
