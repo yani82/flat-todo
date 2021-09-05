@@ -12,8 +12,8 @@ state = {
 };
 
 addNewTodo = (newTodoObject) => {
+  // Here is where we would make an API call to persist the new todo object
   const newTodosState = this.state.todos.concat(newTodoObject);
-//   // const newTodosState = [...this.state.todos, newTodoObject];
   this.setState({
       todos: newTodosState,
     });
@@ -30,14 +30,28 @@ addNewTodo = (newTodoObject) => {
 // };
 
   render() {
-    const todoElements = this.state.todos.map((todo) => (
+    const activeTodos = this.state.todos.filter(function(todo){
+      return !todo.completed 
+    })
+    const completedTodos = this.state.todos.filter(function(todo)
+    {
+      return todo.completed 
+    })
+    const activeTodoElements = activeTodos.map((todo) => (
+      <TodoListItem key={todo.id} todo={todo} />
+    ));
+    const completedTodoElements = completedTodos.map((todo) => (
       <TodoListItem key={todo.id} todo={todo} />
     ));
     return (
     <div>
       <Header todos={this.state.todos} />
       <NewTodoForm todos={this.state.todos} addNewTodo={this.addNewTodo} />
-      {todoElements}
+      <hr />
+      <h1>Active Todos</h1>
+      {activeTodoElements}
+      <h1>Completed Todos</h1>
+      {completedTodoElements}
       </div>
     );
   }

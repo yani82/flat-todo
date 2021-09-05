@@ -9,7 +9,6 @@ export default class NewTodoForm extends Component {
     };
 
     handleChange = (event) => {
-    debugger;
         this.setState({ [event.target.name]: event.target.value })
         // console.log("the input has changed");
       };
@@ -43,7 +42,7 @@ export default class NewTodoForm extends Component {
                 placeholder="Enter new to-do here..."
                 />
                 <br></br>
-                <input 
+                {/* <input 
                 onChange={this.handleChange} 
                 value={this.state.dueDate}
                 name="dueDate"
@@ -58,7 +57,7 @@ export default class NewTodoForm extends Component {
                 type="text" 
                 placeholder="Enter new to-do here..."
                 />
-                <br></br>
+                <br></br> */}
                 <p>{20 - this.state.newTodo.length} characters left</p>
                 <button type="submit">Create new to-do</button>
                 </form>
