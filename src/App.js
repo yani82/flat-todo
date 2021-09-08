@@ -11,11 +11,11 @@ state = {
   ],
 };
 
-completeTodo = (id) => {
+toggleTodo = (id) => {
   const updateTodoState = this.state.todos.map((todo) => {
     if (todo.id === id) {
       // change the value of this todo's complete prop to true 
-      return {...todo, completed: true};
+      return {...todo, completed: !todo.completed };
     } else {
       return todo;
     }
@@ -52,13 +52,13 @@ addNewTodo = (newTodoObject) => {
     })
     const activeTodoElements = activeTodos.map((todo) => (
       <TodoListItem 
-      completeTodo={this.completeTodo} 
+      toggleTodo={this.toggleTodo} 
       key={todo.id} 
       todo={todo} 
       />
     ));
     const completedTodoElements = completedTodos.map((todo) => (
-      <TodoListItem key={todo.id} todo={todo} />
+      <TodoListItem toggleTodo={this.toggleTodo} key={todo.id} todo={todo} />
     ));
     return (
     <div>
